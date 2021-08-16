@@ -18,35 +18,43 @@ win32gui.BringWindowToTop(hwnd)
 win32gui.SetForegroundWindow(hwnd)
 L=right-left
 W=bottom-top
-print(left)
-print(top)
-print(right)
-print(bottom)
 i=1
+f=0
 while i>0:
-    if keyboard.is_pressed('s'):
+    if keyboard.is_pressed('f9') or f==1:
         break
-    if position[0]=="1" and i==1:
-        win32api.SetCursorPos((left+int(L*(315/1280)),bottom-int(W*(120/760))))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
-        time.sleep(0.001)
-    elif position[1]=="1" and i==2:
-        win32api.SetCursorPos((left+int(L*(480/1280)),bottom-int(W*(120/760))))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
-        time.sleep(0.001)
-    elif position[2]=="1" and i==3:
-        win32api.SetCursorPos((left+int(L*(645/1280)),bottom-int(W*(120/760))))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
-        time.sleep(0.001)
-    elif position[3]=="1" and i==4:
-        win32api.SetCursorPos((left+int(L*(805/1280)),bottom-int(W*(120/760))))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
-        time.sleep(0.001)
-    elif position[4]=="1" and i==5:
-        win32api.SetCursorPos((left+int(L*(960/1280)),bottom-int(W*(120/760))))
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
-        time.sleep(0.001)
-    i=i+1
-    if(i>5):
-        i=1
+    if keyboard.is_pressed('f8'):
+        print("start")
+        time.sleep(1)
+        while i>0:
+            if keyboard.is_pressed('f8'):
+                print("stop")
+                time.sleep(1)
+                break
+            if keyboard.is_pressed('f9'):
+                f=1
+                break
+            if position[0]=="1" and i==1:
+                win32api.SetCursorPos((left+int(L*(315/1280)),bottom-int(W*(120/760))))
+                win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+                time.sleep(0.0001)
+            elif position[1]=="1" and i==2:
+                win32api.SetCursorPos((left+int(L*(480/1280)),bottom-int(W*(120/760))))
+                win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+                time.sleep(0.0001)
+            elif position[2]=="1" and i==3:
+                win32api.SetCursorPos((left+int(L*(645/1280)),bottom-int(W*(120/760))))
+                win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+                time.sleep(0.0001)
+            elif position[3]=="1" and i==4:
+                win32api.SetCursorPos((left+int(L*(805/1280)),bottom-int(W*(120/760))))
+                win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+                time.sleep(0.0001)
+            elif position[4]=="1" and i==5:
+                win32api.SetCursorPos((left+int(L*(960/1280)),bottom-int(W*(120/760))))
+                win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP | win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+                time.sleep(0.0001)
+            i=i+1
+            if(i>5):
+                i=1
 
