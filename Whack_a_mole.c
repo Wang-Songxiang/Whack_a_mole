@@ -3,6 +3,7 @@
 #include<string.h> 
 #include<unistd.h>
 #include<conio.h>
+#define F 0.001
 
 int main(){
     HWND hwnd;
@@ -32,14 +33,9 @@ int main(){
     int p4x=rect.left+W*805/1280;
     int p5x=rect.left+W*960/1280;
     int key=0;
+    int px[5]={p1x,p2x,p3x,p4x,p5x};
     BringWindowToTop(hwnd);
     SetForegroundWindow(hwnd);
-    // printf("%d %d\n",W,H);
-    // printf("%d %d\n",p1x,py);
-    // printf("%d %d\n",p2x,py);
-    // printf("%d %d\n",p3x,py);
-    // printf("%d %d\n",p4x,py);
-    // printf("%d %d\n",p5x,py);
     // printf("读取配置完毕，摁f8启动或关闭连点(有一秒cd，启动有一秒延迟)，退出摁f9\n");
     printf("compelete reading file.\npress F8 to open or close the function.(1s delay)\npress f9 to finish.");
     while(i>0){
@@ -62,34 +58,12 @@ int main(){
                     f=1;
                     break;
                 }
-                if(i==1&&txt[0]=='1'){
-                    SetCursorPos(p1x,py);
-                    mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    sleep(0.0001);
-                }
-                else if(i==2&&txt[2]=='1'){
-                    SetCursorPos(p2x,py);
-                    mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    sleep(0.0001);
-                }
-                else if(i==3&&txt[4]=='1'){
-                    SetCursorPos(p3x,py);
-                    mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    sleep(0.0001);
-                }
-                else if(i==4&&txt[6]=='1'){
-                    SetCursorPos(p4x,py);
-                    mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    sleep(0.0001);
-                }
-                else if(i==5&&txt[8]=='1'){
-                    SetCursorPos(p5x,py);
-                    mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                    sleep(0.0001);
-                }
-                i++;
-                if(i>5){
-                    i=1;
+                for(i=1;i<=5;++i){
+                    if(txt[i*2-2]=='1'){
+                        SetCursorPos(px[i-1],py);
+                        mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+                        sleep(F);
+                    }
                 }
             }
         }
