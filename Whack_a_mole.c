@@ -3,7 +3,7 @@
 #include<string.h> 
 #include<unistd.h>
 #include<conio.h>
-#define F 0.001
+#define F 0.01
 
 int main(){
     HWND hwnd;
