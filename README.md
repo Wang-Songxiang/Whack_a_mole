@@ -24,5 +24,5 @@ f8键开关有一秒冷却时间
 	删除了测试时使用的数据显示，增加了操作说明（因为容易出现乱码所以用工地英语写了）  
 2021/8/17.2  
 	优化了一下代码看起来更简洁  
-2021/8/17.3
-	经dalao指点（githubID-KasuganoSora1）将linux下的sleep函数改成windows下的Sleep函数一定程度上解决了使用时游戏画面卡住的问题
+2021/8/17.3  
+	经dalao指点（githubID-KasuganoSora1）将linux下的sleep函数改成windows下的Sleep函数一定程度上解决了使用时游戏画面卡住的问题  
