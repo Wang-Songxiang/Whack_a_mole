@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<windows.h>
 #include<string.h> 
-#include<unistd.h>
 #include<conio.h>
-#define F 0.01
+#define F 1
 
 int main(){
     HWND hwnd;
@@ -39,18 +38,17 @@ int main(){
     // printf("读取配置完毕，摁f8启动或关闭连点(有一秒cd，启动有一秒延迟)，退出摁f9\n");
     printf("compelete reading file.\npress F8 to open or close the function.(1s delay)\npress f9 to finish.");
     while(i>0){
-        sleep(0.00001);
         tmp=GetKeyState(VK_F8);
         tmpf=GetKeyState(VK_F9);
         if(tmpf<0||f==1){
             break;
         }
         if(tmp<0){
-            sleep(1);
+            Sleep(1000);
             while(i>0){
                 tmp=GetKeyState(VK_F8);
                 if(tmp<0){
-                    sleep(1);
+                    Sleep(1000);
                     break;
                 }
                 tmpf=GetKeyState(VK_F9);
@@ -62,7 +60,7 @@ int main(){
                     if(txt[i*2-2]=='1'){
                         SetCursorPos(px[i-1],py);
                         mouse_event(MOUSEEVENTF_LEFTUP | MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-                        sleep(F);
+                        Sleep(F);
                     }
                 }
             }
